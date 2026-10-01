@@ -1,100 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Gerardo's Car Rentals">
-        <meta name="author" content="Gerardo Arellano-Nunez">
-        <title>Gerardo's Car Rentals</title>
-        <link rel="icon" type="image/x-icon" href="https://zany.sh/favicon.svg?text=GA">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="hero-image">
-            <div class="container">
-                <header>
-                    <h1>
-                        <a href="index.html" target="_self">Gerardo's Car Rentals</a>
-                    </h1>
-                </header>
-                <nav>
-                    <a href="cars.html" target="_self">Cars</a>
-                    <a href="testimonials.html" target="_self">Testimonials</a>
-                    <a href="about.html" target="_self">About</a>
-                    <a href="contact.html" target="_self">Contact</a>
-                </nav>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerardo's Car Rentals">
+    <meta name="author" content="Gerardo Arellano-Nunez">
+    <title>Gerardo's Car Rentals</title>
+    <link rel="icon" type="image/x-icon" href="https://zany.sh/favicon.svg?text=GA">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="hero-image">
+        <div class="container">
+            <header>
+                <h1>
+                    <a href="index.html" target="_self">Gerardo's Car Rentals</a>
+                </h1>
+            </header>
+            <nav>
+                <input type="checkbox" id="toggle">
+                <label for="toggle" class="menu-btn"></label>
+                <ul class="menu">
+                    <li class="fa fa-home"><a href="index.html" target="_self">Home</a></li>
+                    <li class="fa fa-car"><a href="cars.html" target="_self">Cars</a></li>
+                    <li class="fa fa-car"><a href="testimonials.html" target="_self">Testimonials</a></li>
+                    <li class="fa fa-comment"><a href="about.html" target="_self">About</a></li>
+                    <li class="fa fa-envelope"><a href="contact.html" target="_self">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <main>
+        <p id="featured-cars-title">Featured Cars</p>
+        <div id="featured-cars-container">
+            <div class="featured-car-card">
+                <picture>
+                    <source media="(mid-width: 600px)" srcset="car_1-500w.webp">
+                    <source media="(max-width: 600px)" srcset="car_1-320w.webp">
+                    <img src="car_1.jpg" alt="Car Model 1">
+                </picture>
+                <p class="car-model">Car Model 1</p>
+                <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="featured-car-card">
+                <picture>
+                    <source media="(mid-width: 600px)" srcset="car_2-500w.webp">
+                    <source media="(max-width: 600px)" srcset="car_2-320w.webp">
+                    <img src="car_2.jpg" alt="Car Model 2">
+                </picture>
+                <p class="car-model">Car Model 2</p>
+                <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="featured-car-card">
+                <picture>
+                    <source media="(mid-width: 600px)" srcset="car_3-500w.webp">
+                    <source media="(max-width: 600px)" srcset="car_3-320w.webp">
+                    <img src="car_3.jpg" alt="Car Model 3">
+                </picture>
+                <p class="car-model">Car Model 3</p>
+                <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="featured-car-card">
+                <picture>
+                    <source media="(mid-width: 600px)" srcset="car_4-500w.webp">
+                    <source media="(max-width: 600px)" srcset="car_4-320w.webp">
+                    <img src="car_4.jpg" alt="Car Model 4">
+                </picture>
+                <p class="car-model">Car Model 4</p>
+                <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="featured-car-card">
+                <picture>
+                    <source media="(mid-width: 600px)" srcset="car_5-500w.webp">
+                    <source media="(max-width: 600px)" srcset="car_5-320w.webp">
+                    <img src="car_5.jpg" alt="Car Model 5">
+                </picture>
+                <p class="car-model">Car Model 5</p>
+                <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="featured-car-card">
+                <picture>
+                    <source media="(mid-width: 600px)" srcset="car_6-500w.webp">
+                    <source media="(max-width: 600px)" srcset="car_6-320w.webp">
+                    <img src="car_6.jpg" alt="Car Model 6">
+                </picture>
+                <p class="car-model">Car Model 6</p>
+                <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="featured-car-card">
+                <picture>
+                    <source media="(mid-width: 600px)" srcset="car_7-500w.webp">
+                    <source media="(max-width: 600px)" srcset="car_7-320w.webp">
+                    <img src="car_7.jpg" alt="Car Model 7">
+                </picture>
+                <p class="car-model">Car Model 7</p>
+                <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
         </div>
-        <main>
-            <p id="featured-cars-title">Featured Cars</p>
-            <div id="featured-cars-container">
-                <div class="featured-car-card">
-                    <picture>
-                        <source media="(mid-width: 600px)" srcset="car_1-500w.webp">
-                        <source media="(max-width: 600px)" srcset="car_1-320w.webp">     
-                        <img src="car_1.jpg" alt="Car Model 1">
-                    </picture>
-                    <p class="car-model">Car Model 1</p>
-                    <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="featured-car-card">
-                    <picture>
-                        <source media="(mid-width: 600px)" srcset="car_2-500w.webp">
-                        <source media="(max-width: 600px)" srcset="car_2-320w.webp"> 
-                        <img src="car_2.jpg" alt="Car Model 2">
-                    </picture>
-                    <p class="car-model">Car Model 2</p>
-                    <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="featured-car-card">
-                    <picture>
-                        <source media="(mid-width: 600px)" srcset="car_3-500w.webp">
-                        <source media="(max-width: 600px)" srcset="car_3-320w.webp"> 
-                        <img src="car_3.jpg" alt="Car Model 3">
-                    </picture>
-                    <p class="car-model">Car Model 3</p>
-                    <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="featured-car-card">
-                    <picture>
-                        <source media="(mid-width: 600px)" srcset="car_4-500w.webp">
-                        <source media="(max-width: 600px)" srcset="car_4-320w.webp"> 
-                        <img src="car_4.jpg" alt="Car Model 4">
-                    </picture>
-                    <p class="car-model">Car Model 4</p>
-                    <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="featured-car-card">
-                    <picture>
-                        <source media="(mid-width: 600px)" srcset="car_5-500w.webp">
-                        <source media="(max-width: 600px)" srcset="car_5-320w.webp"> 
-                        <img src="car_5.jpg" alt="Car Model 5">
-                    </picture>
-                    <p class="car-model">Car Model 5</p>
-                    <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="featured-car-card">
-                    <picture>
-                        <source media="(mid-width: 600px)" srcset="car_6-500w.webp">
-                        <source media="(max-width: 600px)" srcset="car_6-320w.webp"> 
-                        <img src="car_6.jpg" alt="Car Model 6">
-                    </picture>
-                    <p class="car-model">Car Model 6</p>
-                    <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="featured-car-card">
-                    <picture>
-                        <source media="(mid-width: 600px)" srcset="car_7-500w.webp">
-                        <source media="(max-width: 600px)" srcset="car_7-320w.webp"> 
-                        <img src="car_7.jpg" alt="Car Model 7">
-                    </picture>
-                    <p class="car-model">Car Model 7</p>
-                    <p class="car-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <p>&copy;2026</p>
-        </footer>
-    </body>
+    </main>
+    <footer>
+        <p>&copy;2026</p>
+    </footer>
+</body>
+
 </html>

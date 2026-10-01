@@ -47,8 +47,7 @@ nav a:hover {
 }
 
 .container nav {
-    display: flex;
-    gap: 2rem;
+    display: flex;  
 }
 
 .hero-image {

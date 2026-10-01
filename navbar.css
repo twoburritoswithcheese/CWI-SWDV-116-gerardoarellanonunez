@@ -1,0 +1,82 @@
+ul {
+    list-style-type: none;
+    background-color: #333333;
+    display: flex;
+    padding: 10px;
+}
+
+ul li {
+    display: flex;
+    align-items: flex-start;
+    color: white;
+    padding-right: 10px;
+}
+
+ul li a {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#toggle {
+    display: none;
+}
+
+.menu-btn {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .menu {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 210px
+        
+    }
+
+    ul {
+        list-style-type: none;
+        background-color: #333333;
+        display: flex;
+        flex-direction: column;
+        padding: 14px;
+    }
+
+    ul li {
+        display: flex;
+        align-items: flex-start;
+        color: white;
+        padding-bottom: 10px;
+    }
+
+    .menu-btn {
+        display: block;
+        padding-right: 8px;
+        color: black;
+    }
+
+    .menu-btn::after {
+        content: "\2630"; 
+    }
+
+    #toggle:checked~.menu {
+        display: block;
+    }
+
+    #toggle:checked~.menu-btn::after {
+        content: "\2716";
+    }
+
+    nav:has(#toggle:checked) {
+        background-color: #333333;
+    }
+
+    nav:has(#toggle:checked)>.menu-btn {
+        color: white;
+    }
+}
