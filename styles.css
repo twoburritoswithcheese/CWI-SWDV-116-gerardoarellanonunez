@@ -158,3 +158,9 @@ main {
     padding-left: 24px;
     padding-top: 16px;
 }
+
+#video-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 32px;
+}
