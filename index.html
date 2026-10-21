@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SWDV-116 Lab 9">
+    <meta name="description" content="SWDV-116 Lab 10">
     <meta name="author" content="Gerardo Arellano-Nunez">
     <title>Gerardo's Car Rentals</title>
     <link rel="icon" type="image/x-icon" href="https://zany.sh/favicon.svg?text=GA">
@@ -33,6 +33,26 @@
                 </ul>
             </nav>
         </div>
+        <div id="form-container">
+            <p id="form-title">Rent A Car Today</p>
+            <form action="cars.html" method="GET">
+                <label for="type">Car Type</label>
+                <select name="type" id="type" required>
+                    <option value=""></option>
+                    <option value="SUV">SUV</option>
+                    <option value="Passenger Van">Passenger Van</option>
+                    <option value="Premium Car">Premium Car</option>
+                    <option value="Luxury Car">Luxury Car</option>
+                    <option value="Pickup Truck">Pickup Truck</option>
+                    <option value="Economy Car">Economy Car</option>
+                </select><br>
+                <label for="pickup">Pickup Date</label>
+                <input name="pickup" type="date" id="pickup" min="2026-10-20" required><br>
+                <label for="return">Return Date</label>
+                <input name="return" type="date" id="return" min="2026-10-20" required><br>
+                <input id="search-button" type="submit" value="Search">
+            </form>
+        </div>
     </div>
     <main>
         <div id="video-container">
@@ -40,14 +60,10 @@
                 <source src="DrivingVideo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 <!-- Subtitles Track-->
-                 <track src="subtitles.vtt"
-                 kind="subtitles"
-                 srclang="en"
-                 label="English"
-                 default>
+                <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English" default>
             </video>
         </div>
-        <audio autoplay>
+        <audio >
             <source src="DrivingMusic.mp4" type="audio/mp4">
             Your browser does not support the audio element.
         </audio>
