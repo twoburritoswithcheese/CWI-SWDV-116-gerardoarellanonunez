@@ -6,7 +6,7 @@ function isStrongPassword(password) {
     const hasSpecialChar = Boolean(password.match(/[!@#$%^&*()_+{}\[\]\|\/\<\>\?]/));
     const hasWordPassword = Boolean(password.toLowerCase().includes("password"));
 
-    if (hasTwelveChar === 12 && hasUpperCase && hasLoswerCase && hasNumbers && hasSpecialChar && !hasWordPassword) {
+    if (hasTwelveChar >= 12 && hasUpperCase && hasLoswerCase && hasNumbers && hasSpecialChar && !hasWordPassword) {
         return true;
     } else {
         return false;
