@@ -218,3 +218,10 @@ main {
     justify-content: center;
     padding-top: 32px;
 }
+
+#ulErrMsg li {
+    background-color: antiquewhite;
+    color: red;
+    font-size: 20px;
+    padding: 5px;
+}

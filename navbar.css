@@ -1,4 +1,4 @@
-ul {
+ul:not(#ulErrMsg) {
     list-style-type: none;
     background-color: #333333;
     display: flex;

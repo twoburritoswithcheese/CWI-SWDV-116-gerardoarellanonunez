@@ -35,7 +35,7 @@
         </div>
         <div id="form-container">
             <p id="form-title">Rent A Car Today</p>
-            <form action="cars.html" method="GET">
+            <form action="cars.html" method="GET" id="form">
                 <label for="type">Car Type</label>
                 <select name="type" id="type" required>
                     <option value=""></option>
@@ -52,6 +52,10 @@
                 <input name="return" type="date" id="return" min="2026-10-20" required><br>
                 <input id="search-button" type="submit" value="Search">
             </form>
+            <div id="errMsg-container">
+                <ul id="ulErrMsg">
+                </ul>
+            </div>
         </div>
     </div>
     <main>
@@ -63,7 +67,7 @@
                 <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English" default>
             </video>
         </div>
-        <audio >
+        <audio>
             <source src="DrivingMusic.mp4" type="audio/mp4">
             Your browser does not support the audio element.
         </audio>
@@ -137,7 +141,7 @@
     <footer>
         <p>&copy;2026</p>
     </footer>
-    <script src="password.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
