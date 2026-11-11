@@ -1,15 +1,19 @@
-// properties 
-let vehicleType = document.querySelector("#type");
-let pickupDate = document.querySelector("#pickup");
-let returnDate = document.querySelector("#return");
 
 let searchButton = document.querySelector("#search-button").addEventListener("click", validateSearch);
 
 // handle form validation
 function validateSearch (event) {
 
+    const vehicleType = document.querySelector("#type").value;
+    const pickupDate = document.querySelector("#pickup").value;
+    const returnDate = document.querySelector("#return").value;
+    
+    let pDate = new Date(pickupDate).setHours(0, 0, 0, 0);
+    let rDate = new Date(returnDate).setHours(0, 0, 0, 0);
+    let currentDate = new Date().setHours(0, 0, 0, 0,);
+    
     // validate entries
-    let errorMsgs = validateValues(vehicleType.value, pickupDate.value, returnDate.value)
+    let errorMsgs = validateValues(vehicleType, pDate, rDate, currentDate);
 
     // check for any errors
     if (errorMsgs.length > 0) {
@@ -30,9 +34,8 @@ function validateSearch (event) {
 
 
 // check for any missing fields
-function validateValues(vehicleType, pickupDate, returnDate) {
+function validateValues(vehicleType, pickupDate, returnDate, currentDate) {
     let errMsg = [];
-    let currentDate = new Date();
 
     if (vehicleType === "") {
         errMsg.push("* Missing vehicle type.");
@@ -46,13 +49,14 @@ function validateValues(vehicleType, pickupDate, returnDate) {
         errMsg.push("* Missing return date.");
     }
 
-    if (new Date(pickupDate) < currentDate) {
+    if (pickupDate < currentDate) {
         errMsg.push("* Pickup date must be in the future.");
+        
     }
 
-    if (new Date(returnDate) < new Date(pickupDate)) {
+    if (returnDate < pickupDate) {
         errMsg.push("* Return date must be after pickup date.");
-    }
-
+        
+    }    
     return errMsg;
 }
