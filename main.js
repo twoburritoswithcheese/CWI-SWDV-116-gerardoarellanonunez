@@ -114,3 +114,27 @@ function validateValues(vehicleType, pickupDate, returnDate, currentDate) {
     }    
     return errMsg;
 }
+
+function displayCars(carsList) {
+    let ulCar = document.querySelector("#ulSearchCars");
+    ulCar.innerHTML = "";
+    carsList.forEach(car => {
+        let li = document.createElement('li');
+        li.innerText = car.name +" "+ car.year;
+        ulCar.appendChild(li);
+    });
+}
+
+function listCars() {
+    displayCars(cars);
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.has('type')) {
+    const type = params.get('type');
+    // filter the cars array by type and call displayCars with the new array
+    }
+    else {
+        // call displayCars with the unfiltered cars array
+    }
+}
+
