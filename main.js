@@ -1,3 +1,56 @@
+// global array
+const cars =[
+    {type: "suv",
+     name: "Honda CV",
+     description: "Benchmark compact SUV with excellent efficiency and comfort.",
+     year: "2026"
+     },
+    {type: "suv",
+     name: "Toyota RAV4",
+     description: "All-hybrid option with strong fuel economy and cargo space.",
+     year: "2026"
+     },
+    {type: "sedan",
+     name: "Toyota Camry",
+     description: "Top‑ranked midsize sedan with up to 51 mpg",
+     year: "2025"
+     },
+    {type: "sedan",
+     name: "Honda Accord",
+     description: " Smooth, efficient, and tech‑forward.",
+     year: "2025"
+     },
+    {type: "luxury",
+     name: "Mercedes-Maybach S-Class",
+     description: "6.0L V12 engine producing 621 hp, featuring massaging heated, and ventilated seats.",
+     year: "2026"
+     },
+    {type: "luxury",
+     name: "BMW 7 Series",
+     description: "Offers ergonomic seats with massage functions, advanced infotainment, and high-performance engine options.",
+     year: "2026"
+     },
+    {type: "pickup truck",
+     name: "Ford Maverick",
+     description: "A highly efficient, city-friendly compact truck, good interior space, and a practical bed for everyday use.",
+     year: "2025"
+     },
+    {type: "pickup truck",
+     name: "Chevrolet Colorado",
+     description: " It is a versatile choice for both work and recreational use.",
+     year: "2025"
+     },
+    {type: "electric",
+     name: "Tesla Model 3",
+     description: "Solid mix of performance and efficiency.",
+     year: "2025"
+     },
+    {type: "electric",
+     name: "Chevy Equinox EV",
+     description: "Smooth ride and quiet cabin on the highway.",
+     year: "2025"
+     }
+];
 
 let searchButton = document.querySelector("#search-button").addEventListener("click", validateSearch);
 
@@ -8,6 +61,7 @@ function validateSearch (event) {
     const pickupDate = document.querySelector("#pickup").value;
     const returnDate = document.querySelector("#return").value;
     
+    // remove hours and seconds
     let pDate = new Date(pickupDate).setHours(0, 0, 0, 0);
     let rDate = new Date(returnDate).setHours(0, 0, 0, 0);
     let currentDate = new Date().setHours(0, 0, 0, 0,);
