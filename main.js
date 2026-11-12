@@ -1,58 +1,59 @@
 // global array
 const cars =[
-    {type: "suv",
+    {type: "SUV",
      name: "Honda CV",
      description: "Benchmark compact SUV with excellent efficiency and comfort.",
      year: "2026"
      },
-    {type: "suv",
+    {type: "SUV",
      name: "Toyota RAV4",
      description: "All-hybrid option with strong fuel economy and cargo space.",
      year: "2026"
      },
-    {type: "sedan",
+    {type: "Sedan",
      name: "Toyota Camry",
      description: "Top‑ranked midsize sedan with up to 51 mpg",
      year: "2025"
      },
-    {type: "sedan",
+    {type: "Sedan",
      name: "Honda Accord",
-     description: " Smooth, efficient, and tech‑forward.",
+     description: "Smooth, efficient, and tech‑forward.",
      year: "2025"
      },
-    {type: "luxury",
+    {type: "Luxury",
      name: "Mercedes-Maybach S-Class",
      description: "6.0L V12 engine producing 621 hp, featuring massaging heated, and ventilated seats.",
      year: "2026"
      },
-    {type: "luxury",
+    {type: "Luxury",
      name: "BMW 7 Series",
      description: "Offers ergonomic seats with massage functions, advanced infotainment, and high-performance engine options.",
      year: "2026"
      },
-    {type: "pickup truck",
+    {type: "Pickup",
      name: "Ford Maverick",
      description: "A highly efficient, city-friendly compact truck, good interior space, and a practical bed for everyday use.",
      year: "2025"
      },
-    {type: "pickup truck",
+    {type: "Pickup",
      name: "Chevrolet Colorado",
      description: " It is a versatile choice for both work and recreational use.",
      year: "2025"
      },
-    {type: "electric",
+    {type: "Electric",
      name: "Tesla Model 3",
      description: "Solid mix of performance and efficiency.",
      year: "2025"
      },
-    {type: "electric",
+    {type: "Electric",
      name: "Chevy Equinox EV",
      description: "Smooth ride and quiet cabin on the highway.",
      year: "2025"
      }
 ];
 
-let searchButton = document.querySelector("#search-button").addEventListener("click", validateSearch);
+let searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", validateSearch);
 
 // handle form validation
 function validateSearch (event) {
@@ -115,26 +116,81 @@ function validateValues(vehicleType, pickupDate, returnDate, currentDate) {
     return errMsg;
 }
 
-function displayCars(carsList) {
-    let ulCar = document.querySelector("#ulSearchCars");
-    ulCar.innerHTML = "";
-    carsList.forEach(car => {
-        let li = document.createElement('li');
-        li.innerText = car.name +" "+ car.year;
-        ulCar.appendChild(li);
+// display list of cars
+function displayCars(carArray, hasType) {
+    const carList = document.getElementById("car-list");
+
+    // empty content inside element
+    carList.innerHTML = "";
+
+    if(carArray.length === 0) {
+        carList.innerHTML = "<p>No cars found for this category.</p>"
+        return;
+    }
+
+    // filter car image
+    let im = "";
+    if (hasType) {
+        const carType = carArray[0];
+        const carPicture = carType.type.toLowerCase();
+
+        switch(carPicture) {
+            case "suv":
+                im = 'src="car_4.jpg"';
+                break;
+            case "sedan":
+                im = 'src="car_1.jpg"';
+                break;
+            case "luxury":
+                im = 'src="car_7.jpg"';
+                break;
+            case "pickup":
+                im = 'src="car_4.jpg"';
+                break;
+            case "electric":
+                im = 'src="car_3.jpg"';
+                break;
+            default:
+                im = 'src="car_1.jpg"';
+        }   
+    } else {
+        im = 'src="car_1.jpg"'
+    }
+
+    carArray.forEach(car => {
+        const carCard = document.createElement("div");
+        carCard.classList.add("cars-card");
+        carCard.innerHTML = `
+            <img ${im}" >
+            <h3>${car.name}</h3>
+            <p><strong>Type:</strong> ${car.type}</p>
+            <p><strong>Year:</strong> ${car.year}</p>
+            <p>${car.description}</p>
+        `;
+        carList.appendChild(carCard);
     });
+
 }
 
+
+// filter cars
 function listCars() {
-    displayCars(cars);
     const params = new URLSearchParams(window.location.search);
+    // used for picture default
+    let hasType = false;
 
     if (params.has('type')) {
-    const type = params.get('type');
-    // filter the cars array by type and call displayCars with the new array
+        const type = params.get('type');
+        hasType = true;
+        // filter the cars array by type and call displayCars with the new array
+        const filteredCars = cars.filter(car => 
+            car.type.toLowerCase() === type.toLowerCase());
+        
+        displayCars(filteredCars, hasType);
     }
     else {
         // call displayCars with the unfiltered cars array
+        displayCars(cars);
     }
 }
 
