@@ -188,10 +188,81 @@ main {
     background-color: white;
     padding: 15px 15px 15px 25px;
     width: 532px;
-    height: 632px;
+    height: 670px;
     box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.10);
     font-size: 20px;
 }
+
+.rental-button {
+    align-items: center;
+    appearance: button;
+    background-color: #0276FF;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-family: "RM Neue",sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding: 10px 21px;
+    text-align: center;
+    text-transform: none;
+    
+}
+
+.rental-dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+    font-size: 24px;
+}
+
+.rental-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#cancel-button {
+    align-items: center;
+    background-color: #d8d8d8;
+    border-radius: 8px;
+ 
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #181818;
+    cursor: pointer;
+    font-family: "RM Neue",sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 10px;
+    padding: 10px 21px;
+    text-align: center;
+}
+
+#confirm-button {
+    align-items: center;
+    background-color: #d8d8d8;
+    border-radius: 8px;
+    
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #181818;
+    cursor: pointer;
+    font-family: "RM Neue",sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 10px;
+    padding: 10px 21px;
+    text-align: center;
+}
+
 
 @media screen and (max-width: 600px) {
     .featured-car-card {

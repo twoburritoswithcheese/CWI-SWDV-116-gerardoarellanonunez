@@ -1,72 +1,84 @@
 // global array
-const cars =[
-    {type: "SUV",
-     name: "Honda CV",
-     description: "Benchmark compact SUV with excellent efficiency and comfort.",
-     year: "2026"
-     },
-    {type: "SUV",
-     name: "Toyota RAV4",
-     description: "All-hybrid option with strong fuel economy and cargo space.",
-     year: "2026"
-     },
-    {type: "Sedan",
-     name: "Toyota Camry",
-     description: "Top‑ranked midsize sedan with up to 51 mpg",
-     year: "2025"
-     },
-    {type: "Sedan",
-     name: "Honda Accord",
-     description: "Smooth, efficient, and tech‑forward.",
-     year: "2025"
-     },
-    {type: "Luxury",
-     name: "Mercedes-Maybach S-Class",
-     description: "6.0L V12 engine producing 621 hp, featuring massaging heated, and ventilated seats.",
-     year: "2026"
-     },
-    {type: "Luxury",
-     name: "BMW 7 Series",
-     description: "Offers ergonomic seats with massage functions, advanced infotainment, and high-performance engine options.",
-     year: "2026"
-     },
-    {type: "Pickup",
-     name: "Ford Maverick",
-     description: "A highly efficient, city-friendly compact truck, good interior space, and a practical bed for everyday use.",
-     year: "2025"
-     },
-    {type: "Pickup",
-     name: "Chevrolet Colorado",
-     description: " It is a versatile choice for both work and recreational use.",
-     year: "2025"
-     },
-    {type: "Electric",
-     name: "Tesla Model 3",
-     description: "Solid mix of performance and efficiency.",
-     year: "2025"
-     },
-    {type: "Electric",
-     name: "Chevy Equinox EV",
-     description: "Smooth ride and quiet cabin on the highway.",
-     year: "2025"
-     }
+const cars = [
+    {
+        type: "SUV",
+        name: "Honda CV",
+        description: "Benchmark compact SUV with excellent efficiency and comfort.",
+        year: "2026"
+    },
+    {
+        type: "SUV",
+        name: "Toyota RAV4",
+        description: "All-hybrid option with strong fuel economy and cargo space.",
+        year: "2026"
+    },
+    {
+        type: "Sedan",
+        name: "Toyota Camry",
+        description: "Top‑ranked midsize sedan with up to 51 mpg",
+        year: "2025"
+    },
+    {
+        type: "Sedan",
+        name: "Honda Accord",
+        description: "Smooth, efficient, and tech‑forward.",
+        year: "2025"
+    },
+    {
+        type: "Luxury",
+        name: "Mercedes-Maybach S-Class",
+        description: "6.0L V12 engine producing 621 hp, featuring massaging heated, and ventilated seats.",
+        year: "2026"
+    },
+    {
+        type: "Luxury",
+        name: "BMW 7 Series",
+        description: "Offers ergonomic seats with massage functions, advanced infotainment, and high-performance engine options.",
+        year: "2026"
+    },
+    {
+        type: "Pickup",
+        name: "Ford Maverick",
+        description: "A highly efficient, city-friendly compact truck, good interior space, and a practical bed for everyday use.",
+        year: "2025"
+    },
+    {
+        type: "Pickup",
+        name: "Chevrolet Colorado",
+        description: " It is a versatile choice for both work and recreational use.",
+        year: "2025"
+    },
+    {
+        type: "Electric",
+        name: "Tesla Model 3",
+        description: "Solid mix of performance and efficiency.",
+        year: "2025"
+    },
+    {
+        type: "Electric",
+        name: "Chevy Equinox EV",
+        description: "Smooth ride and quiet cabin on the highway.",
+        year: "2025"
+    }
 ];
 
 let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", validateSearch);
 
-// handle form validation
-function validateSearch (event) {
 
+
+// handle form validation
+function validateSearch(event) {
     const vehicleType = document.querySelector("#type").value;
     const pickupDate = document.querySelector("#pickup").value;
     const returnDate = document.querySelector("#return").value;
-    
+
     // remove hours and seconds
     let pDate = new Date(pickupDate).setHours(0, 0, 0, 0);
+    console.log(pDate)
     let rDate = new Date(returnDate).setHours(0, 0, 0, 0);
     let currentDate = new Date().setHours(0, 0, 0, 0,);
-    
+
     // validate entries
     let errorMsgs = validateValues(vehicleType, pDate, rDate, currentDate);
 
@@ -75,7 +87,7 @@ function validateSearch (event) {
         // get the ul ready
         let ul = document.querySelector("#ulErrMsg");
         ul.innerHTML = "";
-        
+
         // display each error
         for (let i = 0; i < errorMsgs.length; i++) {
             let li = document.createElement('li');
@@ -84,8 +96,8 @@ function validateSearch (event) {
         }
         // prevent submission of form
         event.preventDefault();
-    } 
-} 
+    }
+}
 
 
 // check for any missing fields
@@ -96,34 +108,35 @@ function validateValues(vehicleType, pickupDate, returnDate, currentDate) {
         errMsg.push("* Missing vehicle type.");
     }
 
-    if (pickupDate === "") {
+    if (isNaN(pickupDate)) {
         errMsg.push("* Missing pickup date.");
     }
 
-    if (returnDate === "") {
+    if (isNaN(returnDate)) {
         errMsg.push("* Missing return date.");
     }
 
     if (pickupDate < currentDate) {
         errMsg.push("* Pickup date must be in the future.");
-        
+
     }
 
     if (returnDate < pickupDate) {
         errMsg.push("* Return date must be after pickup date.");
-        
-    }    
+
+    }
     return errMsg;
+
 }
 
 // display list of cars
-function displayCars(carArray, hasType) {
+function displayCars(carArray, hasType, params) {
     const carList = document.getElementById("car-list");
 
     // empty content inside element
     carList.innerHTML = "";
 
-    if(carArray.length === 0) {
+    if (carArray.length === 0) {
         carList.innerHTML = "<p>No cars found for this category.</p>"
         return;
     }
@@ -134,7 +147,7 @@ function displayCars(carArray, hasType) {
         const carType = carArray[0];
         const carPicture = carType.type.toLowerCase();
 
-        switch(carPicture) {
+        switch (carPicture) {
             case "suv":
                 im = 'src="car_4.jpg"';
                 break;
@@ -152,11 +165,12 @@ function displayCars(carArray, hasType) {
                 break;
             default:
                 im = 'src="car_1.jpg"';
-        }   
+        }
     } else {
         im = 'src="car_1.jpg"'
     }
 
+    // create a card for each vehicle
     carArray.forEach(car => {
         const carCard = document.createElement("div");
         carCard.classList.add("cars-card");
@@ -166,8 +180,73 @@ function displayCars(carArray, hasType) {
             <p><strong>Type:</strong> ${car.type}</p>
             <p><strong>Year:</strong> ${car.year}</p>
             <p>${car.description}</p>
-        `;
+            <button class="rental-button">Rent Vehicle</button>`;
+
+        const rentalButton = carCard.querySelector(".rental-button");
+
+        rentalButton.addEventListener("click", () => {
+            const startDate = params.get('pickup');
+            const returnDate = params.get('return');
+
+            const rentalEvent = new CustomEvent("confirm-rental", {
+                detail: {
+                    carType: car.type,
+                    startDate: startDate,
+                    returnDate: returnDate
+                },
+                bubbles: true,
+                cancelable: true
+            });
+
+            document.addEventListener("confirm-rental", function (event) {
+
+                // Get rental information from the event detail
+                const rentalInfo = event.detail;
+
+                // Get the dialog element
+                const rentalDialog = document.querySelector("#rental-dialog");
+
+                // Display rental information in the dialog
+                document.querySelector("#rental-car-type").textContent =
+                    "Car Type: " + rentalInfo.carType;
+
+                document.querySelector("#rental-start-date").textContent =
+                    "Start Date: " + rentalInfo.startDate;
+
+                document.querySelector("#rental-return-date").textContent =
+                    "Return Date: " + rentalInfo.returnDate;
+
+                // Get the dialog buttons
+                const confirmButton = document.querySelector("#confirm-button");
+                const cancelButton = document.querySelector("#cancel-button");
+
+                // Open the dialog
+                rentalDialog.showModal();
+
+                // Confirm rental
+                confirmButton.onclick = function () {
+
+                    rentalDialog.close();
+
+                    console.log("Rental Confirmed:", rentalInfo);
+
+                };
+
+                // Cancel rental
+                cancelButton.onclick = function () {
+
+                    rentalDialog.close();
+
+                };
+
+            });
+
+            document.dispatchEvent(rentalEvent);
+
+        });
+
         carList.appendChild(carCard);
+
     });
 
 }
@@ -183,14 +262,22 @@ function listCars() {
         const type = params.get('type');
         hasType = true;
         // filter the cars array by type and call displayCars with the new array
-        const filteredCars = cars.filter(car => 
+        const filteredCars = cars.filter(car =>
             car.type.toLowerCase() === type.toLowerCase());
-        
-        displayCars(filteredCars, hasType);
+
+        displayCars(filteredCars, hasType, params);
+
     }
     else {
         // call displayCars with the unfiltered cars array
-        displayCars(cars);
+        displayCars(cars, false, params);
+
     }
 }
+
+
+
+
+
+
 
